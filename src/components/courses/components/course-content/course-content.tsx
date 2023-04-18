@@ -31,8 +31,8 @@ const CourseContent: React.FC<ICourseContentProps> = ({
       </div>
 
       <ul className={styles['course__lessons-list']}>
-        {lessons &&
-          lessons.map((lesson) => (
+        {
+          lessons?.map((lesson) => (
             <CourseLesson key={lesson.id} lesson={lesson} />
           ))}
       </ul>

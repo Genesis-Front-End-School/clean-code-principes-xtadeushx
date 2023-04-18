@@ -7,10 +7,10 @@ export const formateTime = (date: number) => {
   let minutes = Math.round(date / HOUR).toString();
   let seconds = Math.round(date / DAY).toString();
 
-  hours = +hours < 10 ? '0' + hours : hours;
+  hours = parseInt(hours, 10) < 10 ? '0' + hours : hours;
 
-  minutes = +minutes < 10 ? '0' + minutes : minutes;
-  seconds = +seconds < 10 ? '0' + seconds : seconds;
+  minutes = parseInt(minutes, 10) < 10 ? '0' + minutes : minutes;
+  seconds = parseInt(seconds, 10) < 10 ? '0' + seconds : seconds;
 
   result = `${hours}:${minutes}:${seconds}`;
 

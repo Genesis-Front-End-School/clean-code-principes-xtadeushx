@@ -1,5 +1,6 @@
-import { useState, useRef } from 'hooks/hooks';
+import { useRef, useCallback } from 'hooks/hooks';
 import ReactHlsPlayer from '@gumlet/react-hls-player';
+
 import styles from './video.module.scss';
 interface IPlayerProps {
   poster: string;
@@ -12,37 +13,27 @@ interface IPlayerProps {
 
 const Player: React.FC<IPlayerProps> = ({
   poster,
-  duration,
   link,
   autoPlay,
   controls,
   muted,
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(duration);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     if (videoRef.current) {
       const videoPlayer = videoRef.current as HTMLVideoElement;
       videoPlayer.play();
     }
-  };
-  const handleMouseLeave = () => {
+  }, [videoRef.current]);
+
+  const handleMouseLeave = useCallback(() => {
     if (videoRef.current !== null) {
       const videoPlayer = videoRef.current as HTMLVideoElement;
       videoPlayer.pause();
     }
-  };
+  }, [videoRef.current]);
 
-  const handleProgress = () => {
-    if (videoRef.current !== null) {
-      const duration = videoRef.current.duration;
-      const currentTime = videoRef.current.currentTime;
-      const progress = (currentTime / duration) * 100;
-      setProgress(progress);
-    }
-  };
   return (
     <ReactHlsPlayer
       src={link}

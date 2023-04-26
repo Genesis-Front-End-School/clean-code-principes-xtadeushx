@@ -1,12 +1,10 @@
 import { FC } from 'react';
-import { CourseDescription } from '../course-description/course-description';
-import { CourseSkills } from '../course-skills/course-skills';
 import { AiOutlineDislike, AiOutlineLike } from 'react-icons/ai';
-
+import { PreviewDescription } from './components/preview-description/preview-description';
 import styles from './course-preview.module.scss';
 import { ILesson, IMeta } from 'common/types/course.types';
 
-interface ICoursePreviewProps {
+export interface ICoursePreviewProps {
   poster: string;
   lessons: ILesson[];
   meta: IMeta;
@@ -29,15 +27,12 @@ const CoursePreview: FC<ICoursePreviewProps> = ({ poster, lessons, launchDate, c
           </span>
         </div>
       </div>
-      <div className={styles['course__preview-description']}>
-        <CourseDescription
-          lessons={lessons}
-          launchDate={launchDate}
-          duration={courseDuration}
-        />
-        <p className={styles['course__main-info']}>{description}</p>
-        <CourseSkills meta={meta} className="light" />
-      </div>
+      <PreviewDescription
+        courseDuration={courseDuration}
+        launchDate={launchDate}
+        description={description}
+        lessons={lessons}
+        meta={meta} />
     </div>
   )
 }

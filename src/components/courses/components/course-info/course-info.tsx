@@ -1,9 +1,5 @@
 import { ICourse } from 'common/types/course.types';
-import {
-  AiOutlineDislike,
-  AiOutlineLike,
 
-} from 'react-icons/ai';
 import styles from './course-info.module.scss';
 import { CourseDescription } from '../course-description/course-description';
 import { CourseSkills } from '../course-skills/course-skills';
@@ -43,7 +39,13 @@ const CourseInfo: React.FC<ICourseInfoProps> = ({ course }) => {
           </span>
         </h3>
       </div>
-      <CoursePreview/>
+      <CoursePreview
+        meta={meta}
+        description={description}
+        poster={poster}
+        courseDuration={courseDuration}
+        lessons={lessons}
+        launchDate={launchDate} />
       <CourseContent duration={duration} link={link} lessons={course.lessons} />
     </section>
   );

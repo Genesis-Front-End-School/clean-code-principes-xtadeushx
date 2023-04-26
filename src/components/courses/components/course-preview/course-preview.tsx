@@ -4,8 +4,18 @@ import { CourseSkills } from '../course-skills/course-skills';
 import { AiOutlineDislike, AiOutlineLike } from 'react-icons/ai';
 
 import styles from './course-preview.module.scss';
+import { Lesson, Meta } from 'common/types/course.types';
 
-const CoursePreview: FC = ({ poster, lessons, launchDate, courseDuration, description, meta }: any) => {
+interface ICoursePreviewProps {
+  poster: string;
+  lessons: Lesson[];
+  meta: Meta;
+  launchDate: string;
+  courseDuration: number;
+  description: string;
+}
+
+const CoursePreview: FC<ICoursePreviewProps> = ({ poster, lessons, launchDate, courseDuration, description, meta }) => {
   return (
     <div className={styles['course__preview-info']}>
       <div className={styles['course__preview-img']}>

@@ -4,10 +4,11 @@ import { AiOutlineClockCircle, AiOutlineVideoCamera } from 'react-icons/ai';
 
 import styles from './course-description.module.scss';
 import { formateDate, formateTime } from 'helpers/helpers';
+import { Lesson } from 'common/types/course.types';
 
 interface ICourseDescriptionProps {
   duration: number;
-  lessons: any;
+  lessons: Lesson[];
   launchDate: string;
 }
 const CourseDescription: React.FC<

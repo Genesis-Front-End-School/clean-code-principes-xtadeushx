@@ -3,6 +3,8 @@ import { Lesson } from 'common/types/course.types';
 import { CourseLesson } from '../course-lesson/course-lesson';
 
 import styles from './course-content.module.scss';
+import { CourseList } from '../course-list/course-list';
+
 interface ICourseContentProps {
   duration: number;
   link: string;
@@ -30,12 +32,7 @@ const CourseContent: React.FC<ICourseContentProps> = ({
         />
       </div>
 
-      <ul className={styles['course__lessons-list']}>
-        {
-          lessons?.map((lesson) => (
-            <CourseLesson key={lesson.id} lesson={lesson} />
-          ))}
-      </ul>
+      <CourseList lessons={lessons} />
     </div>
   );
 };

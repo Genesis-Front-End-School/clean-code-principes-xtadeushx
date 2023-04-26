@@ -1,8 +1,14 @@
 import { clsx } from 'clsx';
 
-import { TButtonProps } from './types';
-
 import styles from './button.module.scss';
+
+export type TButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: React.ReactNode;
+  onClick?: () => void;
+  type: 'submit' | 'reset' | 'button';
+  dataTestId: string;
+  className?: string;
+};
 
 const Button = ({
   children,

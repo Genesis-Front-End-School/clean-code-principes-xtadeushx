@@ -3,13 +3,11 @@ import { storage } from '../../services/services';
 
 type AuthToken = string | null;
 
-interface Token {
-  token: string;
-}
+
 
 class ApiClient {
   private async _getToken(): Promise<void> {
-    const auth: AuthToken = localStorage.getItem(StorageKey.TOKEN);
+    const auth: AuthToken = storage.getItem(StorageKey.TOKEN);
     if (auth) return;
 
     try {
@@ -29,7 +27,7 @@ class ApiClient {
   public async get<T>(url: string): Promise<T> {
     await this._getToken();
 
-    const token: AuthToken = localStorage.getItem(StorageKey.TOKEN);
+    const token: AuthToken = storage.getItem(StorageKey.TOKEN);
     const headers = new Headers();
     if (token) {
       headers.append(HttpHeader.CONTENT_TYPE, 'application/json');
@@ -47,7 +45,7 @@ class ApiClient {
   private mapError(error: any): any {
     console.log(error);
     if (error.status === 401) {
-      localStorage.removeItem(StorageKey.TOKEN);
+      storage.removeItem(StorageKey.TOKEN);
     }
     throw error;
   }

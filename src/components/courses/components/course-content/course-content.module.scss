@@ -1,0 +1,13 @@
+.course__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: var(--color-blue-400);
+}
+
+.course__content-video {
+  width: 70%;
+  height: 100%;
+}

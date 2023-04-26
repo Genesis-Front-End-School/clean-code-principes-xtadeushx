@@ -1,5 +1,5 @@
 import { Player } from 'components/common/video/video';
-import { Lesson } from 'common/types/course.types';
+import { ILesson } from 'common/types/course.types';
 import { CourseList } from '../course-list/course-list';
 import styles from './course-content.module.scss';
 
@@ -7,7 +7,7 @@ interface ICourseContentProps {
   duration: number;
   link: string;
   poster?: string;
-  lessons: Lesson[];
+  lessons: ILesson[];
 }
 const CourseContent: React.FC<ICourseContentProps> = ({
   duration,

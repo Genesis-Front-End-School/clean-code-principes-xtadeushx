@@ -1,9 +1,9 @@
-import { Meta } from 'common/types/course.types';
+import { IMeta } from 'common/types/course.types';
 
 import styles from './course-skills.module.scss';
 
 interface IMetaProps {
-  meta: Meta;
+  meta: IMeta;
   className: string;
 }
 

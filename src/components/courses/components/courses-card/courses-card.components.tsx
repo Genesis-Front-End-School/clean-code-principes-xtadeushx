@@ -1,5 +1,5 @@
 import { Link } from 'hooks/hooks';
-import { Meta } from 'common/types/course.types';
+import { IMeta } from 'common/types/course.types';
 import { AppRoute } from 'common/enums/enums';
 import { CourseSkills } from '../course-skills/course-skills';
 import { Player } from 'components/common/video/video';
@@ -13,7 +13,7 @@ interface ICoursesCardProps {
   lessonsCount: number;
   rating: number;
   preview: string;
-  meta: Meta;
+  meta: IMeta;
 }
 
 const CoursesCard: React.FC<ICoursesCardProps> = ({

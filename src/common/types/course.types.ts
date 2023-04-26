@@ -8,24 +8,24 @@ export interface ICourse {
   duration: number;
   previewImageLink: string;
   rating: number;
-  meta: Meta;
-  lessons: Lesson[];
+  meta: IMeta;
+  lessons: ILesson[];
   containsLockedLessons: boolean;
 }
 
-export interface Meta {
+export interface IMeta {
   slug: string;
   skills: string[];
-  courseVideoPreview: CourseVideoPreview;
+  courseVideoPreview: ICourseVideoPreview;
 }
 
-export interface CourseVideoPreview {
+export interface ICourseVideoPreview {
   link: string;
   duration: number;
   previewImageLink: string;
 }
 
-export interface Lesson {
+export interface ILesson {
   id: string;
   title: string;
   duration: number;

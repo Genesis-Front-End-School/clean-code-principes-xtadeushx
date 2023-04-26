@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { Lesson } from 'common/types/course.types';
+import { ILesson } from 'common/types/course.types';
 import { CourseLesson } from '../course-lesson/course-lesson';
 
 import styles from './course-list.module.scss';
 
 interface ICourseListProps {
-  lessons: Lesson[];
+  lessons: ILesson[];
 }
 
 const CourseList: FC<ICourseListProps> = ({ lessons }) => {

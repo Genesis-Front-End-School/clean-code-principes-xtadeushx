@@ -4,12 +4,12 @@ import { CourseSkills } from '../course-skills/course-skills';
 import { AiOutlineDislike, AiOutlineLike } from 'react-icons/ai';
 
 import styles from './course-preview.module.scss';
-import { Lesson, Meta } from 'common/types/course.types';
+import { ILesson, IMeta } from 'common/types/course.types';
 
 interface ICoursePreviewProps {
   poster: string;
-  lessons: Lesson[];
-  meta: Meta;
+  lessons: ILesson[];
+  meta: IMeta;
   launchDate: string;
   courseDuration: number;
   description: string;

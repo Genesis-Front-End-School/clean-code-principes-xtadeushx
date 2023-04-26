@@ -1,9 +1,9 @@
-import { Lesson } from 'common/types/course.types';
+import { ILesson } from 'common/types/course.types';
 import { formateTime } from 'helpers/helpers';
 
 import styles from './course-lesson.module.scss';
 interface ICourseLessonProps {
-  lesson: Lesson;
+  lesson: ILesson;
 }
 const CourseLesson: React.FC<ICourseLessonProps> = ({ lesson }) => {
   const { order, duration, title } = lesson;

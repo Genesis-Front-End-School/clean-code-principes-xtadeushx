@@ -1,9 +1,7 @@
 import { Player } from 'components/common/video/video';
 import { Lesson } from 'common/types/course.types';
-import { CourseLesson } from '../course-lesson/course-lesson';
-
-import styles from './course-content.module.scss';
 import { CourseList } from '../course-list/course-list';
+import styles from './course-content.module.scss';
 
 interface ICourseContentProps {
   duration: number;

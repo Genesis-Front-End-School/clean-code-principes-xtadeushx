@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Lesson } from 'common/types/course.types';
 import { CourseLesson } from '../course-lesson/course-lesson';
 
-import styles from './course-content.module.scss';
+import styles from './course-list.module.scss';
 
 interface ICourseListProps {
   lessons: Lesson[];

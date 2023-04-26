@@ -4,7 +4,6 @@ import styles from './button.module.scss';
 
 export type TButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
-  onClick?: () => void;
   type: 'submit' | 'reset' | 'button';
   dataTestId: string;
   className?: string;
@@ -12,7 +11,6 @@ export type TButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const Button = ({
   children,
-  onClick,
   type,
   dataTestId,
   className = '',
@@ -23,7 +21,6 @@ const Button = ({
       data-test-id={dataTestId}
       className={clsx(styles.button, className)}
       type={type}
-      onClick={onClick}
       {...rest}
     >
       {children}

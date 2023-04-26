@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { AiOutlineDislike, AiOutlineLike } from 'react-icons/ai';
 import { PreviewDescription } from './components/preview-description/preview-description';
-import styles from './course-preview.module.scss';
 import { ILesson, IMeta } from 'common/types/course.types';
+import { PreviewAction } from './components/preview-action/preview-action';
+import styles from './course-preview.module.scss';
 
 export interface ICoursePreviewProps {
   poster: string;
@@ -13,19 +13,18 @@ export interface ICoursePreviewProps {
   description: string;
 }
 
-const CoursePreview: FC<ICoursePreviewProps> = ({ poster, lessons, launchDate, courseDuration, description, meta }) => {
+const CoursePreview: FC<ICoursePreviewProps> = ({
+  poster,
+  lessons,
+  launchDate,
+  courseDuration,
+  description,
+  meta }) => {
   return (
     <div className={styles['course__preview-info']}>
       <div className={styles['course__preview-img']}>
         <img src={poster + '/cover.webp'} alt="title" />
-        <div className={styles['course__preview-action']}>
-          <span>
-            <AiOutlineLike className={styles.like} /> 0
-          </span>
-          <span>
-            <AiOutlineDislike className={styles.disLike} /> 0
-          </span>
-        </div>
+        <PreviewAction />
       </div>
       <PreviewDescription
         courseDuration={courseDuration}

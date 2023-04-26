@@ -28,7 +28,7 @@ const PaginatedCourses: React.FC<IPaginatedItemsProps> = ({
     setItemOffset(newOffset);
   };
 
-  if (!courses && loading === 'pending') return <Spinner isOverflow />;
+  if (!courses && loading === 'pending') return <Spinner isOverflowParent />;
   if (!courses && error)
     return <h3>{`Server response with  ${error.toString()}`}</h3>;
 

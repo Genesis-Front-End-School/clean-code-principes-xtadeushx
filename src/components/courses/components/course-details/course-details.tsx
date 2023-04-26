@@ -12,9 +12,9 @@ const CourseDetails: React.FC = () => {
     response: course,
     error,
   } = useFetch(`${ENV.API_PATH}/${id}`, 'id');
-  if (!course && loading === 'pending') return <Spinner isOverflow />;
+  if (!course && loading === 'pending') return <Spinner isOverflowParent />;
   if (!course && error)
-    return <h3>{`Server response with  ${error.toString()}`}</h3>;
+    return <h3>{`Server response with  ${error?.toString()}`}</h3>;
 
   return (
     <div className={styles['course-page']}>

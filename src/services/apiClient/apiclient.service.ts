@@ -3,8 +3,6 @@ import { storage } from '../../services/services';
 
 type AuthToken = string | null;
 
-
-
 class ApiClient {
   private async _getToken(): Promise<void> {
     const auth: AuthToken = storage.getItem(StorageKey.TOKEN);

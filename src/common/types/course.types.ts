@@ -34,5 +34,5 @@ export interface ILesson {
   status: string;
   link: string;
   previewImageLink: string;
-  meta: any;
+  meta: IMeta;
 }

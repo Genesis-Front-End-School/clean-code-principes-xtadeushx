@@ -1,23 +1,24 @@
 class Storage {
-  private _storage;
-  constructor({ storage }: any) {
-    this._storage = storage;
-  }
+  private _storage: globalThis.Storage;
 
-  getItem(key: string) {
+  constructor() {
+    this._storage = localStorage;
+
+  }
+  getItem(key: string): string | null {
     return this._storage.getItem(key);
   }
 
-  setItem(key: string, value: any) {
-    return this._storage.setItem(key, value);
+  setItem(key: string, value: string): void {
+    this._storage.setItem(key, value);
   }
 
-  removeItem(key: string) {
-    return this._storage.removeItem(key);
+  removeItem(key: string): void {
+    this._storage.removeItem(key);
   }
 
-  clear() {
-    return this._storage.clear();
+  clear(): void {
+    this._storage.clear();
   }
 }
 

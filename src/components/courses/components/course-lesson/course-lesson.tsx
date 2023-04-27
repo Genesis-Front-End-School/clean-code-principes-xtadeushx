@@ -1,4 +1,4 @@
-import { ILesson } from 'common/types/course.types';
+import { ILesson } from 'common/types/coursesList.types';
 import { formateTime } from 'helpers/helpers';
 
 import styles from './course-lesson.module.scss';

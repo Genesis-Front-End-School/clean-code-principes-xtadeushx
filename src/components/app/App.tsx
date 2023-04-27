@@ -10,7 +10,7 @@ import { CourseDetails } from 'components/courses/components/course-details/cour
 
 import styles from './app.module.scss';
 import { course } from 'services/services';
-import { ICourse } from 'common/types/course.types';
+import { ICourse, ICourseList } from 'common/types/coursesList.types';
 
 type TLoading = 'idle' | 'pending' | 'succeeded' | 'failed';
 
@@ -20,8 +20,11 @@ const enum LoadingStatus {
   SUCCEEDED = 'succeeded',
   FAILED = 'failed',
 }
+interface T {
+  courses: ICourseList[]
+}
 const App = () => {
-  const [courses, setCourses] = useState<ICourse[] | []>([]);
+  const [courses, setCourses] = useState<T | []>([]);
   const [loading, setLoading] = useState<TLoading>('idle');
   const [error, setError] = useState<Error | null>(null);
 
@@ -35,7 +38,7 @@ const App = () => {
       const data = await course.getAllCourses();
 
       if (!data.courses.length) {
-        throw new Error(data.message)
+        throw new Error('Something failed')
       }
       setCourses(data.courses);
       setLoading(LoadingStatus.SUCCEEDED);

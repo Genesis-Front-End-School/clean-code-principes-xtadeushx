@@ -1,11 +1,10 @@
-import { ICourse } from 'common/types/course.types';
+import { ICourse } from 'common/types/coursesList.types';
 
-import styles from './course-info.module.scss';
-import { CourseDescription } from '../course-description/course-description';
-import { CourseSkills } from '../course-skills/course-skills';
 import { CourseContent } from '../course-content/course-content';
 import classNames from 'classnames';
 import { CoursePreview } from '../course-preview/course-preview';
+
+import styles from './course-info.module.scss';
 
 interface ICourseInfoProps {
   course: ICourse;
@@ -22,7 +21,7 @@ const CourseInfo: React.FC<ICourseInfoProps> = ({ course }) => {
     description,
     meta,
   } = course;
-  const { link, previewImageLink, duration } = course.lessons[0];
+  const { link, duration } = course.lessons[0];
   return (
     <section className={styles['course']}>
       <div className="course__description">

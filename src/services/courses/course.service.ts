@@ -1,3 +1,4 @@
+import { ICourse } from 'common/types/coursesList.types';
 import { ENV } from '../../common/enums/enums';
 
 class Course {
@@ -8,7 +9,7 @@ class Course {
   }
 
   async getAllCourses() {
-    return this.apiClient.get(ENV.API_PATH)
+    return this.apiClient.get(ENV.API_PATH) as ICourse[]
   }
 
   async getCourseById(id: string) {

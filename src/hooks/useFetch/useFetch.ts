@@ -2,6 +2,7 @@ import { HttpHeader, StorageKey } from 'common/enums/enums';
 import { useState, useEffect } from 'hooks/hooks';
 import { useToken } from 'hooks/useFetch/useToken';
 import { storage } from 'services/services';
+type AuthToken = string | null;
 
 const useFetch = (url: string, id = '') => {
   const [response, setResponse] = useState(null);
@@ -10,10 +11,13 @@ const useFetch = (url: string, id = '') => {
     'idle' | 'pending' | 'succeeded' | 'failed'
   >('idle');
   useToken();
-  const token = storage.getItem(StorageKey.TOKEN);
+  const token: AuthToken = storage.getItem(StorageKey.TOKEN);
   const headers = new Headers();
-  headers.append(HttpHeader.CONTENT_TYPE, 'application/json');
-  headers.append(HttpHeader.AUTHORIZATION, `Bearer ${JSON.parse(token)}`);
+  if (token) {
+    headers.append(HttpHeader.CONTENT_TYPE, 'application/json');
+    headers.append(HttpHeader.AUTHORIZATION, `Bearer ${token}`);
+  }
+
 
   useEffect(() => {
     const doFetch = async () => {

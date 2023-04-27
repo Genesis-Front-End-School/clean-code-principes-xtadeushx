@@ -2,6 +2,7 @@ import { ENV, StorageKey, HttpHeader } from '../../common/enums/enums';
 import { storage } from '../services';
 
 type AuthToken = string | null;
+
 class ApiClient {
 
   private async _getToken(): Promise<void> {

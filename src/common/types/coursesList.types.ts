@@ -6,7 +6,7 @@ export interface Course {
   status: string;
   description: string;
   duration: number;
-  lessonsCount: number;
+  lessonsCount?: number;
   containsLockedLessons: boolean;
   previewImageLink: string;
   rating: number;

@@ -10,27 +10,37 @@ import { CourseDetails } from 'components/courses/components/course-details/cour
 
 import styles from './app.module.scss';
 import { course } from 'services/services';
+import { ICourse } from 'common/types/course.types';
 
+type TLoading = 'idle' | 'pending' | 'succeeded' | 'failed';
+
+const enum LoadingStatus {
+  IDLE = 'idle',
+  PENDING = 'pending',
+  SUCCEEDED = 'succeeded',
+  FAILED = 'failed',
+}
 const App = () => {
-  const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState<'idle' | 'pending' | 'succeeded' | 'failed'>('idle');
+  const [courses, setCourses] = useState<ICourse[] | []>([]);
+  const [loading, setLoading] = useState<TLoading>('idle');
   const [error, setError] = useState<Error | null>(null);
+
   useEffect(() => {
     getAllCourses();
   }, []);
 
-
   const getAllCourses = async () => {
     try {
-      setLoading('pending')
+      setLoading(LoadingStatus.PENDING)
       const data = await course.getAllCourses();
-      if (data.message) {
+
+      if (!data.courses.length) {
         throw new Error(data.message)
       }
       setCourses(data.courses);
-      setLoading('succeeded');
+      setLoading(LoadingStatus.SUCCEEDED);
     } catch (error: any) {
-      setLoading('failed');
+      setLoading(LoadingStatus.FAILED);
       setError(error)
     }
   }

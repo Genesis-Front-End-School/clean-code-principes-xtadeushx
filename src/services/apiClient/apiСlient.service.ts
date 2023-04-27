@@ -30,7 +30,7 @@ class ApiClient {
     }
 
     try {
-      const response = await fetch(url, { headers});
+      const response = await fetch(url, { headers });
       return response.json();
     } catch (error) {
       return this.mapError(error);

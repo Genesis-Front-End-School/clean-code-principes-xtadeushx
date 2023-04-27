@@ -1,20 +1,17 @@
 import { ENV, StorageKey, HttpHeader } from '../../common/enums/enums';
-import { storage } from '../../services/services';
+import { storage } from '../services';
 
 type AuthToken = string | null;
-
 class ApiClient {
+
   private async _getToken(): Promise<void> {
     const auth: AuthToken = storage.getItem(StorageKey.TOKEN);
     if (auth) return;
-
     try {
       const resp = await fetch(ENV.TOKEN_PATH);
-
       if (!resp.ok) {
         throw new Error(`${resp.status} server error`);
       }
-
       const { token } = await resp.json();
       localStorage.setItem(StorageKey.TOKEN, token);
     } catch (error) {
@@ -33,7 +30,7 @@ class ApiClient {
     }
 
     try {
-      const response = await fetch(url, { headers });
+      const response = await fetch(url, { headers});
       return response.json();
     } catch (error) {
       return this.mapError(error);

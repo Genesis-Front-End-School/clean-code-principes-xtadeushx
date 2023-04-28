@@ -1,4 +1,5 @@
-export interface ICourseList {
+
+interface ICommon {
   id: string;
   title: string;
   tags: string[];
@@ -6,26 +7,22 @@ export interface ICourseList {
   status: string;
   description: string;
   duration: number;
-  lessonsCount: number;
-  containsLockedLessons: boolean;
-  previewImageLink: string;
-  rating: number;
-  meta: IMeta;
 }
 
-export interface ICourse {
-  id: string;
-  title: string;
-  tags: string[];
-  launchDate: string;
-  status: string;
-  description: string;
-  duration: number;
+export interface ICourse extends ICommon {
   previewImageLink: string;
   rating: number;
   meta: IMeta;
   lessons: ILesson[];
   containsLockedLessons: boolean;
+}
+
+export interface ICourseList extends ICommon {
+  lessonsCount: number;
+  containsLockedLessons: boolean;
+  previewImageLink: string;
+  rating: number;
+  meta: IMeta;
 }
 
 export interface IMeta {
@@ -34,11 +31,12 @@ export interface IMeta {
   courseVideoPreview?: ICourseVideoPreview;
 }
 
-export interface ICourseVideoPreview {
+interface ICourseVideoPreview {
   link: string;
   duration: number;
   previewImageLink: string;
 }
+
 export interface ILesson {
   id: string;
   title: string;

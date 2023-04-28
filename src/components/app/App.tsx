@@ -32,7 +32,7 @@ const App = (): JSX.Element => {
       setLoading('pending');
       const data = await course.getAllCourses();
 
-      if (!data.courses.length) {
+      if (!data) {
         throw new Error('No courses found');
       }
       setCourses({ courses: data.courses });

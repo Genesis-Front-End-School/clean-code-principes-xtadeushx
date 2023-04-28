@@ -12,20 +12,15 @@ import styles from './app.module.scss';
 import { course } from 'services/services';
 import { ICourse, ICourseList } from 'common/types/coursesList.types';
 
-type TLoading = 'idle' | 'pending' | 'succeeded' | 'failed';
+type LoadingStatus = 'idle' | 'pending' | 'succeeded' | 'failed';
 
-const enum LoadingStatus {
-  IDLE = 'idle',
-  PENDING = 'pending',
-  SUCCEEDED = 'succeeded',
-  FAILED = 'failed',
+interface ICoursesApp {
+  courses: ICourseList[];
 }
-interface T {
-  courses: ICourseList[]
-}
-const App = () => {
-  const [courses, setCourses] = useState<T | []>([]);
-  const [loading, setLoading] = useState<TLoading>('idle');
+
+const App = (): JSX.Element => {
+  const [courses, setCourses] = useState<ICoursesApp>({ courses: [] });
+  const [loading, setLoading] = useState<LoadingStatus>('idle');
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
@@ -34,19 +29,20 @@ const App = () => {
 
   const getAllCourses = async () => {
     try {
-      setLoading(LoadingStatus.PENDING)
+      setLoading('pending');
       const data = await course.getAllCourses();
 
       if (!data.courses.length) {
-        throw new Error('Something failed')
+        throw new Error('No courses found');
       }
-      setCourses(data.courses);
-      setLoading(LoadingStatus.SUCCEEDED);
+      setCourses({ courses: data.courses });
+      setLoading('succeeded');
     } catch (error: any) {
-      setLoading(LoadingStatus.FAILED);
-      setError(error)
+      setLoading('failed');
+      setError(error);
     }
-  }
+  };
+
   return (
     <div className={styles.app}>
       <Header logOut={() => console.log('log out')} user="Olexandr Unknown" />
@@ -55,7 +51,7 @@ const App = () => {
           path={AppRoute.ROOT}
           element={
             <PaginatedCourses
-              courses={courses}
+              courses={courses.courses}
               loading={loading}
               error={error}
               itemsPerPage={10}

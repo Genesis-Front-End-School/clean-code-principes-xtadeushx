@@ -1,7 +1,8 @@
-import { useRef, useCallback } from 'hooks/hooks';
+import { useRef, useCallback } from 'react';
 import ReactHlsPlayer from '@gumlet/react-hls-player';
 
 import styles from './video.module.scss';
+
 interface IPlayerProps {
   poster: string;
   duration: number;
@@ -51,4 +52,4 @@ const Player: React.FC<IPlayerProps> = ({
   );
 };
 
-export { Player };
+export default Player;

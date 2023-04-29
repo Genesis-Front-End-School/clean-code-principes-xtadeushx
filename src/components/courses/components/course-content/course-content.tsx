@@ -21,9 +21,7 @@ const CourseContent: React.FC<ICourseContentProps> = ({
         <Player
           duration={duration}
           poster={poster}
-          link={
-            link
-          }
+          link={link}
           autoPlay={false}
           controls={true}
           muted={false}

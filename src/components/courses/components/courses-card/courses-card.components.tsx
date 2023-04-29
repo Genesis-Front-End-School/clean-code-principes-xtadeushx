@@ -63,11 +63,14 @@ const CoursesCard: React.FC<ICoursesCardProps> = ({
                 className={styles['curse-card-rating']}
               >
                 rating:
-                <span className={classNames({
-                  [styles.red]: rating < 3,
-                  [styles.yellow]: rating >= 3 && rating < 5,
-                  [styles.green]: rating >= 5,
-                })}>{rating}
+                <span
+                  className={classNames({
+                    [styles.red]: rating < 3,
+                    [styles.yellow]: rating >= 3 && rating < 5,
+                    [styles.green]: rating >= 5,
+                  })}
+                >
+                  {rating}
                 </span>
               </span>
             </div>
@@ -82,7 +85,7 @@ const CoursesCard: React.FC<ICoursesCardProps> = ({
       >
         begin studding
       </Link>
-    </div >
+    </div>
   );
 };
 

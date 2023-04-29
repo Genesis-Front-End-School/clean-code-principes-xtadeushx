@@ -36,6 +36,6 @@ describe('Footer component', () => {
   it('opens the link in a new tab', () => {
     render(<Footer />);
 
-    expect(screen.getByText(/Best IT courses/ig)).toHaveAttribute('target', '_blank');
+    expect(screen.getByText(/Best IT courses/)).toHaveAttribute('target', '_blank');
   });
 });

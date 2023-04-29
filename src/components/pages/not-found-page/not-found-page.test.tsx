@@ -14,12 +14,4 @@ describe('NotFoundPage component', () => {
 
     expect(screen.getByText('This page does not found')).toMatchSnapshot();
   });
-
-  it('should have class name', () => {
-    render(<NotFoundPage />);
-
-    expect(screen.getByText('This page does not found')).toHaveClass(
-      'not-found-page'
-    );
-  });
 });

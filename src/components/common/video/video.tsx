@@ -52,4 +52,4 @@ const Player: React.FC<IPlayerProps> = ({
   );
 };
 
-export default Player;
+export {Player};

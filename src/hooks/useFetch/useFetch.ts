@@ -1,4 +1,5 @@
 import { HttpHeader, StorageKey } from 'common/enums/enums';
+import { TLoadingStatus } from 'common/types/coursesList.types';
 import { useState, useEffect, useMemo } from 'hooks/hooks';
 import { useToken } from 'hooks/useFetch/useToken';
 import { storage } from 'services/services';
@@ -8,7 +9,7 @@ type AuthToken = string;
 type UseFetchResult<T> = {
   response: T | null;
   error: Error | null;
-  loading: 'idle' | 'pending' | 'succeeded' | 'failed';
+  loading: TLoadingStatus;
 };
 
 type StorageKey = {

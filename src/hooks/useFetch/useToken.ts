@@ -12,7 +12,6 @@ const useToken = async () => {
     const token = await resp.json();
     localStorage.setItem(StorageKey.TOKEN, JSON.stringify(token.token));
   } catch (er) {
-    console.log(er);
   }
 };
 export { useToken };

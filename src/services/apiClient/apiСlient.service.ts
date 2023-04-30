@@ -5,7 +5,7 @@ type AuthToken = string | null;
 
 class ApiClient {
 
-  private async _getToken(): Promise<void> {
+  private async _setToken(): Promise<void> {
     const auth: AuthToken = storage.getItem(StorageKey.TOKEN);
     if (auth) return;
     try {
@@ -21,7 +21,7 @@ class ApiClient {
   }
 
   public async get<T>(url: string): Promise<T> {
-    await this._getToken();
+    await this._setToken();
 
     const token: AuthToken = storage.getItem(StorageKey.TOKEN);
     const headers = new Headers();

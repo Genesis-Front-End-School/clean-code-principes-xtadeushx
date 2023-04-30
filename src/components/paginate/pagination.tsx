@@ -4,12 +4,16 @@ import { CoursesLayout } from 'components/courses/courses-layout';
 import Spinner from 'components/common/loader/loader';
 
 import styles from './pagination.module.scss';
-import { ICourse, ICourseList } from 'common/types/coursesList.types';
+import {
+  ICourse,
+  ICourseList,
+  TLoadingStatus,
+} from 'common/types/coursesList.types';
 
 interface IPaginatedItemsProps {
   itemsPerPage: number;
   courses: ICourseList[];
-  loading: 'idle' | 'pending' | 'succeeded' | 'failed';
+  loading: TLoadingStatus;
   error: Error | null;
 }
 
@@ -20,7 +24,6 @@ const PaginatedCourses: React.FC<IPaginatedItemsProps> = ({
   error,
 }) => {
   const [itemOffset, setItemOffset] = useState<number>(0);
-
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = courses.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(courses.length / itemsPerPage);
@@ -29,7 +32,6 @@ const PaginatedCourses: React.FC<IPaginatedItemsProps> = ({
     const newOffset = (selectedItem.selected * itemsPerPage) % courses.length;
     setItemOffset(newOffset);
   };
-
 
   if (loading === 'pending') {
     return <Spinner isOverflowParent />;
@@ -58,4 +60,3 @@ const PaginatedCourses: React.FC<IPaginatedItemsProps> = ({
   );
 };
 export { PaginatedCourses };
-

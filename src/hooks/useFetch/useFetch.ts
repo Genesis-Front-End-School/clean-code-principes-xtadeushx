@@ -1,19 +1,40 @@
 import { HttpHeader, StorageKey } from 'common/enums/enums';
-import { useState, useEffect } from 'hooks/hooks';
+import { TLoadingStatus } from 'common/types/coursesList.types';
+import { useState, useEffect, useMemo } from 'hooks/hooks';
 import { useToken } from 'hooks/useFetch/useToken';
 import { storage } from 'services/services';
 
-const useFetch = (url: string, id = '') => {
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
+type AuthToken = string;
+
+type UseFetchResult<T> = {
+  response: T | null;
+  error: Error | null;
+  loading: TLoadingStatus;
+};
+
+type StorageKey = {
+  TOKEN: string;
+};
+
+const useFetch = <T>(url: string, id = ''): UseFetchResult<T> => {
+  const [response, setResponse] = useState<T | null>(null);
+  const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState<
     'idle' | 'pending' | 'succeeded' | 'failed'
   >('idle');
+
   useToken();
-  const token = storage.getItem(StorageKey.TOKEN);
-  const headers = new Headers();
-  headers.append(HttpHeader.CONTENT_TYPE, 'application/json');
-  headers.append(HttpHeader.AUTHORIZATION, `Bearer ${JSON.parse(token)}`);
+
+  const token: AuthToken | null = storage.getItem(StorageKey.TOKEN) || null;
+
+  const headers: HeadersInit = useMemo(() => {
+    const result = new Headers();
+    if (token) {
+      result.append(HttpHeader.CONTENT_TYPE, 'application/json');
+      result.append(HttpHeader.AUTHORIZATION, `Bearer ${token}`);
+    }
+    return result;
+  }, [token]);
 
   useEffect(() => {
     const doFetch = async () => {
@@ -33,7 +54,9 @@ const useFetch = (url: string, id = '') => {
       }
     };
     doFetch();
-  }, [id]);
+  }, [url, headers, id]);
+
   return { response, error, loading };
 };
+
 export { useFetch };

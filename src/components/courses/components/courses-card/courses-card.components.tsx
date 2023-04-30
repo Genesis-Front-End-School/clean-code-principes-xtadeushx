@@ -1,11 +1,11 @@
 import { Link } from 'hooks/hooks';
-import { IMeta } from 'common/types/course.types';
 import { AppRoute } from 'common/enums/enums';
 import { CourseSkills } from '../course-skills/course-skills';
 import { Player } from 'components/common/video/video';
 
 import styles from './courses-card.module.scss';
 import classNames from 'classnames';
+import { IMeta } from 'common/types/coursesList.types';
 
 interface ICoursesCardProps {
   id: string;

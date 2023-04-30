@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { PreviewDescription } from './components/preview-description/preview-description';
-import { ILesson, IMeta } from 'common/types/course.types';
+import { ILesson, IMeta } from 'common/types/coursesList.types';
 import { PreviewAction } from './components/preview-action/preview-action';
 import styles from './course-preview.module.scss';
 

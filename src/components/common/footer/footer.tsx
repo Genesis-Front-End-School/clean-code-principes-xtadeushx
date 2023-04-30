@@ -14,6 +14,7 @@ const Footer: React.FC = () => {
           Best IT courses
         </a>
         <AiFillGithub className={styles.gitHub} />
+
       </span>
     </footer>
   );

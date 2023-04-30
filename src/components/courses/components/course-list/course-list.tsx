@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ILesson } from 'common/types/course.types';
+import { ILesson } from 'common/types/coursesList.types';
 import { CourseLesson } from '../course-lesson/course-lesson';
 
 import styles from './course-list.module.scss';

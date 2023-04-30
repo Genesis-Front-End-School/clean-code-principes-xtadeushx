@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import styles from './button.module.scss';
 
 export type TButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   type: 'submit' | 'reset' | 'button';
   dataTestId: string;
   className?: string;

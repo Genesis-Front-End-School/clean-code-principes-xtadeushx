@@ -1,9 +1,9 @@
+import { ICourseList } from 'common/types/coursesList.types';
 import { CoursesCard } from './components/courses-card/courses-card.components';
 import styles from './courses-layout.module.scss';
-import { Course } from 'common/types/coursesList.types';
 
 interface ICoursesLayoutProps {
-  courses: Course[];
+  courses: ICourseList[];
 }
 
 const CoursesLayout: React.FC<ICoursesLayoutProps> = ({ courses }) => {

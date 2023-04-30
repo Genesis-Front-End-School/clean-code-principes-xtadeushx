@@ -48,3 +48,5 @@ export interface ILesson {
   previewImageLink: string;
   meta: IMeta;
 }
+
+export type TLoadingStatus = 'idle' | 'pending' | 'succeeded' | 'failed'

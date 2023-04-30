@@ -4,12 +4,12 @@ import { ENV } from 'common/enums/enums';
 import Spinner from 'components/common/loader/loader';
 
 import styles from './course-details.module.scss';
-import { ICourse } from 'common/types/coursesList.types';
+import { ICourse, TLoadingStatus } from 'common/types/coursesList.types';
 
 interface ICourseDetails {
   response: ICourse | null;
   error: Error | null;
-  loading: 'idle' | 'pending' | 'succeeded' | 'failed';
+  loading: TLoadingStatus;
 }
 
 const CourseDetails: React.FC = () => {
@@ -18,11 +18,10 @@ const CourseDetails: React.FC = () => {
     loading,
     response: course,
     error,
-  } = useFetch(`${ENV.API_PATH}/${id}`, 'id') as ICourseDetails;
+  } = useFetch<ICourseDetails>(`${ENV.API_PATH}/${id}`, 'id');
 
   if (loading === 'pending') return <Spinner isOverflowParent />;
-  if (error)
-    return <h3>{`Server response with  ${error?.toString()}`}</h3>;
+  if (error) return <h3>{`Server response with  ${error?.toString()}`}</h3>;
 
   return (
     <div className={styles['course-page']}>

@@ -4,12 +4,16 @@ import Spinner from '../common/loader/loader';
 import { CoursesLayout } from '../courses/courses-layout';
 
 import styles from './pagination.module.scss';
-import { ICourseList } from 'common/types/coursesList.types';
+import {
+  ICourse,
+  ICourseList,
+  TLoadingStatus,
+} from 'common/types/coursesList.types';
 
 interface IPaginatedItemsProps {
   itemsPerPage: number;
   courses: ICourseList[];
-  loading: 'idle' | 'pending' | 'succeeded' | 'failed';
+  loading: TLoadingStatus;
   error: Error | null;
 }
 

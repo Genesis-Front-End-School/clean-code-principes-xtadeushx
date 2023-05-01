@@ -10,7 +10,7 @@ import { CourseDetails } from 'components/courses/components/course-details/cour
 
 import styles from './app.module.scss';
 import { course } from 'services/services';
-import { ICourse, ICourseList } from 'common/types/coursesList.types';
+import { ICourseList } from 'common/types/coursesList.types';
 
 type LoadingStatus = 'idle' | 'pending' | 'succeeded' | 'failed';
 

@@ -1,4 +1,4 @@
-import { DAY, HOUR, MINUTE } from 'helpers/constants/constants.helpers';
+import { DAY, HOUR, MINUTE } from '../constants/constants.helpers';
 
 export const formateTime = (date: number) => {
   let result;
@@ -13,6 +13,6 @@ export const formateTime = (date: number) => {
   seconds = parseInt(seconds, 10) < 10 ? '0' + seconds : seconds;
 
   result = `${hours}:${minutes}:${seconds}`;
-
   return result;
 };
+

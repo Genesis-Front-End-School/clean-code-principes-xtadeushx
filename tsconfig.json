@@ -20,7 +20,7 @@
       "components/*": ["components/*"],
       "assets/*": ["assets/*"],
       "common/*": ["common/*"],
-      "helpers/*": ["helpers/*"],
+      // "helpers/*": ["helpers/*"],
       "hooks/*": ["hooks/*"],
       "services/*": ["services/*"],
       "styles/*": ["styles/*"]

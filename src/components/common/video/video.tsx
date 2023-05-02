@@ -12,7 +12,7 @@ interface IPlayerProps {
   muted: boolean;
 }
 
-const Player: React.FC<IPlayerProps> = ({
+const CustomVideoPlayer: React.FC<IPlayerProps> = ({
   poster,
   link,
   autoPlay,
@@ -52,4 +52,4 @@ const Player: React.FC<IPlayerProps> = ({
   );
 };
 
-export {Player};
+export { CustomVideoPlayer };

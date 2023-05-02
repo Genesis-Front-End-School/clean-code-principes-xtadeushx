@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ReactHlsPlayer from '@gumlet/react-hls-player';
 import { useRef } from 'react';
-import { Player } from './video';
+import { CustomVideoPlayer } from './video';
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
@@ -33,7 +33,7 @@ describe('Player', () => {
 
   it('renders the player component with the correct props', () => {
     render(
-      <Player
+      <CustomVideoPlayer
         autoPlay={false}
         controls={true}
         muted={false}
@@ -60,7 +60,7 @@ describe('Player', () => {
   });
 
   it('plays the video on mouse enter and pauses on mouse leave', () => {
-    render(<Player {...mockProps} />);
+    render(<CustomVideoPlayer {...mockProps} />);
     const videoElement = screen.getByRole('presentation');
 
     expect(videoElement).toHaveAttribute('muted', 'false');

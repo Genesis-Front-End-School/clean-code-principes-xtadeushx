@@ -1,5 +1,4 @@
-
-import { IMeta } from 'common/types/coursesList.types';
+import { IMeta } from '../../../../common/types/coursesList.types';
 import styles from './course-skills.module.scss';
 
 interface IMetaProps {

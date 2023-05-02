@@ -15,7 +15,6 @@ interface ICourseDescriptionProps {
 const CourseDescription: React.FC<
   ICourseDescriptionProps & PropsWithChildren
 > = ({ duration, lessons, launchDate }) => {
-  console.log(formateTime(3600));
   return (
     <div className={styles['course__preview-duration']}>
       <div className={styles['course__preview-duration']}>

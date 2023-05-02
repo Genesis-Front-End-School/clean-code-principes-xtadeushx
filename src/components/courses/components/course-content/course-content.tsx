@@ -1,5 +1,5 @@
-import { Player } from 'components/common/video/video';
-import { ILesson } from 'common/types/course.types';
+import { Player } from '../../../../components/common/video/video';
+import { ILesson } from '../../../../common/types/coursesList.types';
 import { CourseList } from '../course-list/course-list';
 import styles from './course-content.module.scss';
 

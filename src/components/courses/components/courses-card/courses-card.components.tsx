@@ -1,11 +1,13 @@
-import { Link } from 'hooks/hooks';
-import { AppRoute } from 'common/enums/enums';
+import classNames from 'classnames';
+
+import { Link } from '../../../../hooks/hooks';
+import { AppRoute } from '../../../../common/enums/enums';
 import { CourseSkills } from '../course-skills/course-skills';
-import { Player } from 'components/common/video/video';
+import { Player } from '../../../../components/common/video/video';
+
+import { IMeta } from '../../../../common/types/coursesList.types';
 
 import styles from './courses-card.module.scss';
-import classNames from 'classnames';
-import { IMeta } from 'common/types/coursesList.types';
 
 interface ICoursesCardProps {
   id: string;

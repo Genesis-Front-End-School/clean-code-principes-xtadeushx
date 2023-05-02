@@ -1,5 +1,5 @@
-import { ENV, StorageKey } from 'common/enums/enums';
-import { storage } from 'services/services';
+import { ENV, StorageKey } from '../../common/enums/enums';
+import { storage } from '../../services/services';
 
 const useToken = async () => {
   const auth = storage.getItem(StorageKey.TOKEN);

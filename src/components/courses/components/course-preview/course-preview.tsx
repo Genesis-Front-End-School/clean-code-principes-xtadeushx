@@ -1,6 +1,5 @@
-import { FC } from 'react';
 import { PreviewDescription } from './components/preview-description/preview-description';
-import { ILesson, IMeta } from 'common/types/coursesList.types';
+import { ILesson, IMeta } from '../../../../common/types/coursesList.types';
 import { PreviewAction } from './components/preview-action/preview-action';
 import styles from './course-preview.module.scss';
 
@@ -13,13 +12,14 @@ export interface ICoursePreviewProps {
   description: string;
 }
 
-const CoursePreview: FC<ICoursePreviewProps> = ({
+const CoursePreview: React.FC<ICoursePreviewProps> = ({
   poster,
   lessons,
   launchDate,
   courseDuration,
   description,
-  meta }) => {
+  meta,
+}) => {
   return (
     <div className={styles['course__preview-info']}>
       <div className={styles['course__preview-img']}>
@@ -31,9 +31,10 @@ const CoursePreview: FC<ICoursePreviewProps> = ({
         launchDate={launchDate}
         description={description}
         lessons={lessons}
-        meta={meta} />
+        meta={meta}
+      />
     </div>
-  )
-}
+  );
+};
 
 export { CoursePreview };

@@ -1,8 +1,8 @@
-import { HttpHeader, StorageKey } from 'common/enums/enums';
-import { TLoadingStatus } from 'common/types/coursesList.types';
-import { useState, useEffect, useMemo } from 'hooks/hooks';
-import { useToken } from 'hooks/useFetch/useToken';
-import { storage } from 'services/services';
+import { HttpHeader, StorageKey } from '../../common/enums/enums';
+import { TLoadingStatus } from '../../common/types/coursesList.types';
+import { useState, useEffect, useMemo } from '../../hooks/hooks';
+import { useToken } from '../../hooks/useFetch/useToken';
+import { storage } from '../../services/services';
 
 type AuthToken = string;
 

@@ -1,4 +1,4 @@
-import { ICourse, ICourseList } from 'common/types/coursesList.types';
+import { ICourse, ICourseList } from '../../common/types/coursesList.types';
 import { ENV } from '../../common/enums/enums';
 
 class Course {

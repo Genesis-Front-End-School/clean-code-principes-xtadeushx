@@ -1,10 +1,13 @@
-import { useFetch, useParams } from 'hooks/hooks';
+import { useFetch, useParams } from '../../../../hooks/hooks';
 import { CourseInfo } from '../course-info/course-info';
-import { ENV } from 'common/enums/enums';
-import Spinner from 'components/common/loader/loader';
+import { ENV } from '../../../../common/enums/enums';
+import Spinner from '../../../../components/common/loader/loader';
 
 import styles from './course-details.module.scss';
-import { ICourse, TLoadingStatus } from 'common/types/coursesList.types';
+import {
+  ICourse,
+  TLoadingStatus,
+} from '../../../../common/types/coursesList.types';
 
 interface ICourseDetails {
   response: ICourse | null;

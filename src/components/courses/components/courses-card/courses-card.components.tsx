@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Link } from '../../../../hooks/hooks';
 import { AppRoute } from '../../../../common/enums/enums';
 import { CourseSkills } from '../course-skills/course-skills';
-import { Player } from '../../../../components/common/video/video';
+import { CustomVideoPlayer } from '../../../../components/common/video/video';
 
 import { IMeta } from '../../../../common/types/coursesList.types';
 
@@ -43,7 +43,7 @@ const CoursesCard: React.FC<ICoursesCardProps> = ({
           </h3>
           <div className={styles['curse-info__content']}>
             <div className={styles['curse-info__video-wrapper']}>
-              <Player
+              <CustomVideoPlayer
                 duration={duration}
                 poster={preview}
                 link={link}

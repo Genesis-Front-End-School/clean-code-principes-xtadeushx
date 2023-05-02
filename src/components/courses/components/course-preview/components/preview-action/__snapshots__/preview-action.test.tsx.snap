@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreviewAction should render the like and dislike icons 1`] = `
+<div>
+  <div>
+    <span>
+      <mock-like-icon />
+       0
+    </span>
+    <span>
+      <mock-dislike-icon />
+       0
+    </span>
+  </div>
+</div>
+`;

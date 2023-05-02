@@ -5,7 +5,7 @@ import { NavLink } from '../../../hooks/hooks';
 
 import styles from './menu.module.scss';
 
-interface IMenuProps {
+export interface IMenuProps {
   user?: string;
   logOut?: () => void;
 }

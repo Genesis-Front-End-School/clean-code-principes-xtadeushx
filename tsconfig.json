@@ -16,15 +16,15 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
-    "paths": {
-      // "components/*": ["components/*"],
-      // "assets/*": ["assets/*"],
-      // "common/*": ["common/*"],
-      // // "helpers/*": ["helpers/*"],
-      // "hooks/*": ["hooks/*"],
-      // "services/*": ["services/*"],
-      // "styles/*": ["styles/*"]
-    }
+    // "paths": {
+    //   "components/*": ["components/*"],
+    //   "assets/*": ["assets/*"],
+    //   "common/*": ["common/*"],
+    //   "helpers/*": ["helpers/*"],
+    //   "hooks/*": ["hooks/*"],
+    //   "services/*": ["services/*"],
+    //   "styles/*": ["styles/*"]
+    // }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

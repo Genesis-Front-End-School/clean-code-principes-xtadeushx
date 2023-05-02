@@ -1,4 +1,4 @@
-import { Player } from '../../../../components/common/video/video';
+import { CustomVideoPlayer } from '../../../../components/common/video/video';
 import { ILesson } from '../../../../common/types/coursesList.types';
 import { CourseList } from '../course-list/course-list';
 import styles from './course-content.module.scss';
@@ -18,7 +18,7 @@ const CourseContent: React.FC<ICourseContentProps> = ({
   return (
     <div className={styles['course__content']}>
       <div className={styles['course__content-video']}>
-        <Player
+        <CustomVideoPlayer
           duration={duration}
           poster={poster}
           link={link}

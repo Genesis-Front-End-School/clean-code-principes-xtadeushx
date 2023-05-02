@@ -17,13 +17,13 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "components/*": ["components/*"],
-      "assets/*": ["assets/*"],
-      "common/*": ["common/*"],
-      // "helpers/*": ["helpers/*"],
-      "hooks/*": ["hooks/*"],
-      "services/*": ["services/*"],
-      "styles/*": ["styles/*"]
+      // "components/*": ["components/*"],
+      // "assets/*": ["assets/*"],
+      // "common/*": ["common/*"],
+      // // "helpers/*": ["helpers/*"],
+      // "hooks/*": ["hooks/*"],
+      // "services/*": ["services/*"],
+      // "styles/*": ["styles/*"]
     }
   },
   "include": ["src"],

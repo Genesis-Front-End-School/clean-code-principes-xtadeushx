@@ -1,35 +1,30 @@
-// import { render, screen } from '@testing-library/react';
-// // Mock the NavLink component from the 'hooks/hooks' module
-// jest.mock('../../../hooks/hooks.tsx', () => ({
-//   NavLink: ({ to, children }: { to: string; children: React.ReactNode }) => (
-//     <a href={to}>{children}</a>
-//   ),
-// }));
+import { render, screen } from '@testing-library/react';
+import { Header } from './header';
 
-// import { Header } from './header';
-// describe('Header component', () => {
-//   it('renders the logo and menu', () => {
-//     const user = {
-//       username: 'testuser',
-//       email: 'testuser@example.com',
-//     };
-//     const logOut = jest.fn();
-//     render(<Header user={user} logOut={logOut} />);
-//     const logo = screen.getByTestId('header-logo');
-//     const menu = screen.getByRole('button', { name: 'Menu' });
-//     expect(logo).toBeInTheDocument();
-//     expect(menu).toBeInTheDocument();
-//   });
+// Mocking the NavLink component
+jest.mock('../../../hooks/hooks', () => ({
+  NavLink: ({ to, className, children }: any) => (
+    <a href={to} className={className}>
+      {children}
+    </a>
+  ),
+}));
+jest.mock('../../common/menu/menu.tsx', () => ({
+  Menu: ({ user, logOut, children }: any) => <span>{user}</span>,
+}));
+describe('Header component', () => {
+  const user = {
+    name: 'John',
+    email: 'john@example.com',
+  };
+  it('renders the logo and menu', () => {
+    render(<Header user={user.name} logOut={() => {}} />);
 
-//   it('calls the logOut function when the menu item is clicked', () => {
-//     const user = {
-//       username: 'testuser',
-//       email: 'testuser@example.com',
-//     };
-//     const logOut = jest.fn();
-//     render(<Header user={user} logOut={logOut} />);
-//     const menuItem = screen.getByRole('menuitem', { name: 'Log out' });
-//     menuItem.click();
-//     expect(logOut).toHaveBeenCalled();
-//   });
-// });
+    const logo = screen.getByText('Best Courses');
+    expect(logo).toHaveAttribute('href', '/');
+    expect(logo).toBeInTheDocument();
+
+    const span = screen.getByText('John');
+    expect(span).toBeInTheDocument();
+  });
+});

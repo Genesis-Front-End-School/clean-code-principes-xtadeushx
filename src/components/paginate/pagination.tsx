@@ -1,5 +1,5 @@
 import ReactPaginate from 'react-paginate';
-import { useState } from 'react';
+import { useState } from '../../hooks/hooks';
 import Spinner from '../common/loader/loader';
 import { CoursesLayout } from '../courses/courses-layout';
 

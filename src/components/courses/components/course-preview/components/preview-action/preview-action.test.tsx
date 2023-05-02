@@ -1,5 +1,4 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { PreviewAction } from './preview-action';
 
 // Mock the react-icons/ai module
@@ -17,7 +16,7 @@ describe('PreviewAction', () => {
   });
 
   it('should render the like and dislike counts', () => {
-    const { getByText } = render(<PreviewAction />);
-    expect(getByText('0')).toBeInTheDocument();
+    render(<PreviewAction />);
+    expect(screen.getByText('0')).toBeInTheDocument();
   });
 });

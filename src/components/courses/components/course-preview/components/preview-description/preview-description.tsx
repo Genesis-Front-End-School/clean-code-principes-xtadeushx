@@ -15,7 +15,7 @@ const PreviewDescription: React.FC<TPreviewDescriptionProps> = ({
   return (
     <div className={styles['course__preview-description']}>
       <CourseDescription
-        lessons={lessons}
+        lessonsCount={lessons.length}
         launchDate={launchDate}
         duration={courseDuration}
       />

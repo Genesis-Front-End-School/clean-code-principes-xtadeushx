@@ -30,7 +30,6 @@ describe('coursesCard component', () => {
     render(<CoursesCard {...props} />);
 
     expect(screen.getByTestId('custom-video-player')).toBeInTheDocument();
-
     expect(screen.getByTestId('link')).toBeInTheDocument();
     expect(screen.getByTestId('title 1')).toBeInTheDocument();
     expect(screen.getByText('JS')).toBeInTheDocument();
@@ -53,6 +52,7 @@ describe('coursesCard component', () => {
       preview: 'rating-test',
     };
     render(<CoursesCard {...props} />);
+
     expect(screen.queryByTestId('JS')).not.toBeInTheDocument();
   });
 });

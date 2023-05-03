@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Header } from './header';
 
-// Mocking the NavLink component
 jest.mock('../../../hooks/hooks', () => ({
   NavLink: ({ to, className, children }: any) => (
     <a href={to} className={className}>
@@ -9,9 +8,11 @@ jest.mock('../../../hooks/hooks', () => ({
     </a>
   ),
 }));
+
 jest.mock('../../common/menu/menu.tsx', () => ({
   Menu: ({ user, logOut, children }: any) => <span>{user}</span>,
 }));
+
 describe('Header component', () => {
   const user = {
     name: 'John',

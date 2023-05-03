@@ -1,10 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { CoursesCard } from './courses-card.components';
 
-// jest.mock('../course-skills/course-skills.tsx', () => ({
-//   CourseSkills: () => <div data-testid="course-skills"></div>,
-// }));
-
 jest.mock('../../../../hooks/hooks.tsx', () => ({
   Link: () => <div data-testid="link"></div>,
 }));

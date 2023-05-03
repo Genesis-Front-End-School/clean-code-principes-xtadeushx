@@ -17,6 +17,6 @@ describe('PreviewAction', () => {
 
   it('should render the like and dislike counts', () => {
     render(<PreviewAction />);
-    expect(screen.getByText('0')).toBeInTheDocument();
+    expect(screen.getAllByText('0')).toHaveLength(2);
   });
 });

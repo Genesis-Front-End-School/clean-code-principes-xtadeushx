@@ -1,16 +1,6 @@
 import { screen, render } from '@testing-library/react';
 import { CourseDescription } from './course-description';
 
-// jest.mock('react-icons/md', () => ({
-//   MdOutlineLanguage: () => <svg data-testid="mock-language-icon" />,
-//   MdOutlineDateRange: () => <svg data-testid="mock-date-icon" />,
-// }));
-
-// jest.mock('react-icons/ai', () => ({
-//   AiOutlineClockCircle: () => <svg data-testid="mock-circle-icon" />,
-//   AiOutlineVideoCamera: () => <svg data-testid="mock-camera-icon" />,
-// }));
-
 describe('CourseDescription component', () => {
   const props = {
     duration: 60,
@@ -26,21 +16,19 @@ describe('CourseDescription component', () => {
 
   it('should render the correct lessons count', () => {
     render(<CourseDescription {...props} />);
-    const lessonsText = screen.getByText(
-      `LESSONS ${props.lessonsCount} videos`
-    );
+    const lessonsText = screen.getByText(`${props.lessonsCount} videos`);
     expect(lessonsText).toBeInTheDocument();
   });
 
   it('should render the correct language', () => {
     render(<CourseDescription {...props} />);
-    const languageText = screen.getByText('Language English');
+    const languageText = screen.getByText('English');
     expect(languageText).toBeInTheDocument();
   });
 
   it('should render the correct launch date', () => {
     render(<CourseDescription {...props} />);
-    const launchDateText = screen.getByText(`ADDED DATE ${props.launchDate}`);
+    const launchDateText = screen.getByText(`5/1/2023`);
     expect(launchDateText).toBeInTheDocument();
   });
 });

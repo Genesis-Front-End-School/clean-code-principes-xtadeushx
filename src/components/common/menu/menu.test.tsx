@@ -1,15 +1,30 @@
-import { screen, render } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { Menu } from './menu';
 
-describe('menu component', () => {
-  const user = {
-    name: 'John',
-    email: 'john@example.com',
-  };
-  it('should render with provided props', () => {
-    render(<Menu user={user.name} logOut={() => console.log('logout')} />);
+jest.mock('react-icons/md', () => ({
+  MdOutlineLanguage: () => <svg data-testid="mock-language-icon" />,
+}));
+jest.mock('react-icons/cg', () => ({
+  CgProfile: () => <svg data-testid="mock-profile-icon" />,
+}));
 
+jest.mock('../../../hooks/hooks', () => ({
+  NavLink: ({ children, ...rest }: any) => <a {...rest}>{children}</a>,
+}));
 
-    expect(screen.getByText(user.name)).toBeInTheDocument();
+describe('Menu component', () => {
+  it('renders correctly', () => {
+    render(<Menu />);
+    expect(screen.getByText('Profile')).toBeInTheDocument();
+  });
+
+  it('calls the logOut function when the Sign Out link is clicked', () => {
+    const logOutMock = jest.fn();
+    render(<Menu logOut={logOutMock} />);
+
+    const signOutLink = screen.getByText('Sign Out');
+    fireEvent.click(signOutLink);
+
+    expect(logOutMock).toHaveBeenCalled();
   });
 });

@@ -16,7 +16,7 @@ describe('Course', () => {
       await course.getAllCourses();
 
       expect(mockApiClient.get).toHaveBeenCalledWith(
-        'http://localhost:3000/api/courses'
+        'https://api.wisey.app/api/v1/core/preview-courses'
       );
     });
 
@@ -51,7 +51,7 @@ describe('Course', () => {
       await course.getCourseById(id);
 
       expect(mockApiClient.get).toHaveBeenCalledWith(
-        `http://localhost:3000/api/courses/${id}`
+        `https://api.wisey.app/api/v1/core/preview-courses/${id}`
       );
     });
 

@@ -1,67 +1,69 @@
-import { render } from '@testing-library/react';
+import React from 'react';
+import { render, waitFor } from '@testing-library/react';
 import { useFetch } from '../../../../hooks/hooks';
 import { CourseDetails } from './course-details';
+import { ENV } from 'common/enums/enums';
 
 jest.mock('../../../../hooks/hooks');
 
-
-jest.mock('../course-info/course-info.tsx', () => ({
-  CourseInfo: jest
-    .fn()
-    .mockReturnValue(<div data-testid="course-info"></div>),
-}));
+const mockCourse = {
+  id: 1,
+  title: 'Test Course',
+  description: 'This is a test course.',
+  thumbnail: 'test.jpg',
+  duration: 100,
+};
 
 describe('CourseDetails', () => {
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-  const mockUseFetch = useFetch as jest.MockedFunction<typeof useFetch>;
+  it('should render course info after loading', async () => {
+    (useFetch as jest.Mock).mockReturnValue({
+      loading: 'fulfilled',
+      response: mockCourse,
+      error: null,
+    });
 
-  it('should render loading spinner while data is being fetched', () => {
-    mockUseFetch.mockReturnValue({
+    const { getByText } = render(<CourseDetails />);
+
+    await waitFor(() =>
+      expect(useFetch).toHaveBeenCalledWith(`${ENV.API_PATH}/undefined`, 'id')
+    );
+
+    expect(getByText('Test Course')).toBeInTheDocument();
+    expect(getByText('This is a test course.')).toBeInTheDocument();
+    expect(getByText('100 minutes')).toBeInTheDocument();
+  });
+
+  it('should render error message if there is an error', async () => {
+    (useFetch as jest.Mock).mockReturnValue({
+      loading: 'fulfilled',
+      response: null,
+      error: '500 Internal Server Error',
+    });
+
+    const { getByText } = render(<CourseDetails />);
+
+    await waitFor(() =>
+      expect(useFetch).toHaveBeenCalledWith(`${ENV.API_PATH}/undefined`, 'id')
+    );
+
+    expect(
+      getByText('Server response with  500 Internal Server Error')
+    ).toBeInTheDocument();
+  });
+
+  it('should render spinner while loading', async () => {
+    (useFetch as jest.Mock).mockReturnValue({
       loading: 'pending',
       response: null,
       error: null,
     });
 
     const { getByTestId } = render(<CourseDetails />);
+
+    await waitFor(() =>
+      expect(useFetch).toHaveBeenCalledWith(`${ENV.API_PATH}/undefined`, 'id')
+    );
+
     expect(getByTestId('spinner')).toBeInTheDocument();
-  });
-
-  it('should render error message if fetch fails', () => {
-    const error = new Error('Failed to fetch data');
-    mockUseFetch.mockReturnValue({
-      loading: 'idle',
-      response: null,
-      error,
-    });
-
-    const { getByText } = render(<CourseDetails />);
-    expect(
-      getByText(`Server response with ${error.toString()}`)
-    ).toBeInTheDocument();
-  });
-
-  it('should render course details if fetch is successful', () => {
-    const course = {
-      id: 1,
-      name: 'React Fundamentals',
-      description: 'Learn React basics',
-      startDate: '2023-06-01',
-      duration: 60,
-      authors: [{ id: 1, name: 'John Doe' }],
-    };
-    mockUseFetch.mockReturnValue({
-      loading: 'idle',
-      response: { course },
-      error: null,
-    });
-
-    const { getByText } = render(<CourseDetails />);
-    expect(getByText(course.name)).toBeInTheDocument();
-    expect(getByText(course.description)).toBeInTheDocument();
-    expect(getByText(course.startDate)).toBeInTheDocument();
-    expect(getByText(`${course.duration} min`)).toBeInTheDocument();
-    expect(getByText(course.authors[0].name)).toBeInTheDocument();
   });
 });

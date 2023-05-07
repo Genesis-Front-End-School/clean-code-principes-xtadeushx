@@ -30,7 +30,7 @@ const CustomVideoPlayer: React.FC<IPlayerProps> = ({
 
   const handleMouseLeave = useCallback(() => {
     if (videoRef.current !== null) {
-      const videoPlayer = videoRef.current as HTMLVideoElement;
+      const videoPlayer = videoRef.current;
       videoPlayer.pause();
     }
   }, [videoRef.current]);

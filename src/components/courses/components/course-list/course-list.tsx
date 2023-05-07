@@ -10,8 +10,14 @@ interface ICourseListProps {
 const CourseList: React.FC<ICourseListProps> = ({ lessons }) => {
   return (
     <ul className={styles['course__lessons-list']}>
-      {lessons?.map((lesson) => (
-        <CourseLesson key={lesson.id} lesson={lesson} />
+      {lessons?.map(({ id, order, title, duration }) => (
+        <CourseLesson
+          key={id}
+          duration={duration}
+          id={id}
+          order={order}
+          title={title}
+        />
       ))}
     </ul>
   );

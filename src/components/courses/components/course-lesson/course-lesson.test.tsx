@@ -12,5 +12,21 @@ describe('CourseLesson component', () => {
 
   it('should render correctly with props', () => {
     render(<CourseLesson {...props} />);
+
+    expect(screen.getByText(`Lesson ${props.order}`)).toBeInTheDocument();
+    expect(screen.getByText(`${props.title}`)).toBeInTheDocument();
+  });
+
+  it('displays the correct formatted duration', () => {
+    const props = {
+      id: '123',
+      order: 1,
+      duration: 3661,
+      title: 'Introduction',
+    };
+
+    render(<CourseLesson {...props} />);
+
+    expect(screen.getByText('01:01:01')).toBeInTheDocument();
   });
 });

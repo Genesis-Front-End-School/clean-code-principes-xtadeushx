@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "jest",
     "test:coverage": "npx jest --coverage",
+    "test:watch": "npx jest --watchAll",
     "lint": "eslint ./src",
     "lint:fix": "npx eslint --ext .ts,tsx src --fix",
     "lint:prettify": "prettier --check \"**/*.{ts,tsx,json,md,scss,html}\"",

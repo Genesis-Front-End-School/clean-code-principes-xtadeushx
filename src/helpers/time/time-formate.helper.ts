@@ -1,18 +1,9 @@
-import { DAY, HOUR, MINUTE } from '../constants/constants.helpers';
+import { HOUR, MINUTE } from '../constants/constants.helpers';
 
-export const formateTime = (date: number) => {
-  let result;
+export const formateTime = (seconds: number): string => {
+  const hours = Math.floor(seconds / HOUR);
+  const minutes = Math.floor((seconds % HOUR) / MINUTE);
+  const remainingSeconds = seconds % MINUTE;
 
-  let hours = Math.round(date / MINUTE).toString();
-  let minutes = Math.round(date / HOUR).toString();
-  let seconds = Math.round(date / DAY).toString();
-
-  hours = parseInt(hours, 10) < 10 ? '0' + hours : hours;
-
-  minutes = parseInt(minutes, 10) < 10 ? '0' + minutes : minutes;
-  seconds = parseInt(seconds, 10) < 10 ? '0' + seconds : seconds;
-
-  result = `${hours}:${minutes}:${seconds}`;
-  return result;
+  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 };
-

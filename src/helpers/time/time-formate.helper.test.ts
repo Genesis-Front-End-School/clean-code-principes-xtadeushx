@@ -1,24 +1,31 @@
 import { formateTime } from "./time-formate.helper";
 
-jest.mock('../constants/constants.helpers.ts', () => ({
-  DAY: 86400000,
-  HOUR: 3600000,
-  MINUTE: 60000,
-}));
 describe('formatTime', () => {
-  it('should format a duration of 90 minutes correctly', () => {
-    expect(formateTime(3600)).toBe('00:00:00');
+  it('formats 0 seconds as 00:00:00', () => {
+    expect(formateTime(0)).toBe('00:00:00');
   });
 
-  it('should format a duration of 2 hours, 15 minutes, and 30 seconds correctly', () => {
-    expect(formateTime(300)).toBe('00:00:00');
+  it('formats 1 second as 00:00:01', () => {
+    expect(formateTime(1)).toBe('00:00:01');
   });
 
-  it('should format a duration of 24 hours correctly', () => {
-    expect(formateTime(86400000)).toBe('1440:24:01');
+  it('formats 59 seconds as 00:00:59', () => {
+    expect(formateTime(59)).toBe('00:00:59');
   });
 
-  it('should format a duration of 30 seconds correctly', () => {
-    expect(formateTime(30000)).toBe('01:00:00');
+  it('formats 60 seconds as 00:01:00', () => {
+    expect(formateTime(60)).toBe('00:01:00');
+  });
+
+  it('formats 3600 seconds as 01:00:00', () => {
+    expect(formateTime(3600)).toBe('01:00:00');
+  });
+
+  it('formats 3661 seconds as 01:01:01', () => {
+    expect(formateTime(3661)).toBe('01:01:01');
+  });
+
+  it('formats 86399 seconds as 23:59:59', () => {
+    expect(formateTime(86399)).toBe('23:59:59');
   });
 });

@@ -4,15 +4,11 @@ import Spinner from '../common/loader/loader';
 import { CoursesLayout } from '../courses/courses-layout';
 
 import styles from './pagination.module.scss';
-import {
-  ICourse,
-  ICourseList,
-  TLoadingStatus,
-} from 'common/types/coursesList.types';
+import { ICourseList, TLoadingStatus } from 'common/types/coursesList.types';
 
 interface IPaginatedItemsProps {
   itemsPerPage: number;
-  courses: ICourseList[];
+  courses: ICourseList[] | null;
   loading: TLoadingStatus;
   error: Error | null;
 }
@@ -25,11 +21,12 @@ const PaginatedCourses: React.FC<IPaginatedItemsProps> = ({
 }) => {
   const [itemOffset, setItemOffset] = useState<number>(0);
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = courses.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(courses.length / itemsPerPage);
+  const currentItems = courses ? courses.slice(itemOffset, endOffset) : [];
+  const pageCount = Math.ceil((courses?.length || 0) / itemsPerPage);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
-    const newOffset = (selectedItem.selected * itemsPerPage) % courses.length;
+    const newOffset =
+      (selectedItem.selected * itemsPerPage) % (courses?.length || 0);
     setItemOffset(newOffset);
   };
 

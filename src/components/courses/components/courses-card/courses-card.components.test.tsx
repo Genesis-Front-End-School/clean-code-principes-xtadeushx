@@ -5,7 +5,7 @@ jest.mock('../../../../hooks/hooks.tsx', () => ({
   Link: () => <div data-testid="link"></div>,
 }));
 
-jest.mock('../../../common/video/video.test.tsx', () => ({
+jest.mock('../../../common/video/video.tsx', () => ({
   CustomVideoPlayer: () => <div data-testid="custom-video-player"></div>,
 }));
 
@@ -31,8 +31,8 @@ describe('coursesCard component', () => {
 
     expect(screen.getByTestId('custom-video-player')).toBeInTheDocument();
     expect(screen.getByTestId('link')).toBeInTheDocument();
-    expect(screen.getByTestId('title 1')).toBeInTheDocument();
-    expect(screen.getByText('JS')).toBeInTheDocument();
+    expect(screen.getByText('title 1')).toBeInTheDocument();
+    expect(screen.getByText('js')).toBeInTheDocument();
   });
   it('should render the component without props', () => {
     const props = {

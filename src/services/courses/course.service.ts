@@ -1,6 +1,10 @@
 import { ICourse, ICourseList } from '../../common/types/coursesList.types';
 import { ENV } from '../../common/enums/enums';
 
+interface ICoursesProps {
+  courses: ICourseList
+}
+
 class Course {
   public apiClient
   constructor(apiClient: any) {
@@ -8,7 +12,7 @@ class Course {
 
   }
 
-  public async getAllCourses(): Promise<ICourseList> {
+  public async getAllCourses(): Promise<ICoursesProps> {
     return this.apiClient.get(ENV.API_PATH)
   }
 

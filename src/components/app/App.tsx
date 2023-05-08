@@ -1,7 +1,13 @@
 import { Header } from '../../components/common/header/header';
 import { Footer } from '../../components/common/footer/footer';
 import { PaginatedCourses } from '../../components/paginate/pagination';
-import { Routes, Route, useFetch, useEffect, useState } from '../../hooks/hooks';
+import {
+  Routes,
+  Route,
+  useFetch,
+  useEffect,
+  useState,
+} from '../../hooks/hooks';
 import { AppRoute, ENV } from '../../common/enums/enums';
 import { NotFoundPage } from '../../components/pages/not-found-page/not-found-page';
 import { Registration } from '../../components/pages/registration/registration';
@@ -19,7 +25,7 @@ interface ICoursesApp {
 }
 
 const App = (): JSX.Element => {
-  const [courses, setCourses] = useState<ICoursesApp>({ courses: [] });
+  const [courses, setCourses] = useState<ICourseList[] | null>(null);
   const [loading, setLoading] = useState<LoadingStatus>('idle');
   const [error, setError] = useState<Error | null>(null);
 
@@ -35,7 +41,7 @@ const App = (): JSX.Element => {
       if (!data) {
         throw new Error('No courses found');
       }
-      setCourses({ courses: data.courses });
+      setCourses(courses);
       setLoading('succeeded');
     } catch (error: any) {
       setLoading('failed');
@@ -51,7 +57,7 @@ const App = (): JSX.Element => {
           path={AppRoute.ROOT}
           element={
             <PaginatedCourses
-              courses={courses.courses}
+              courses={courses}
               loading={loading}
               error={error}
               itemsPerPage={10}

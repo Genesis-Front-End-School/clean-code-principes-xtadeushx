@@ -1,6 +1,5 @@
 import { useRef, useCallback } from 'react';
-import ReactHlsPlayer from '@gumlet/react-hls-player';
-
+import ReactHlsPlayer from 'react-hls-player';
 import styles from './video.module.scss';
 
 interface IPlayerProps {

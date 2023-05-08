@@ -1,6 +1,6 @@
 import { useRef, useCallback } from 'react';
-import ReactHlsPlayer from 'react-hls-player';
 import styles from './video.module.scss';
+import ReactPlayer from 'react-player';
 
 interface IPlayerProps {
   poster: string;
@@ -19,7 +19,6 @@ const CustomVideoPlayer: React.FC<IPlayerProps> = ({
   muted,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-
   const handleMouseEnter = useCallback(() => {
     if (videoRef.current) {
       const videoPlayer = videoRef.current as HTMLVideoElement;
@@ -35,18 +34,19 @@ const CustomVideoPlayer: React.FC<IPlayerProps> = ({
   }, [videoRef.current]);
 
   return (
-    <ReactHlsPlayer
-      src={link}
-      autoPlay={autoPlay}
-      controls={controls}
-      width="100%"
-      height="100%"
-      playerRef={videoRef}
-      poster={poster + '/cover.webp'}
+    <ReactPlayer
+      playerref={videoRef}
+      playing={false}
+      muted={muted}
+      url={link}
+      type="video/hls"
+      className={styles.video}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      muted={muted}
-      className={styles.video}
+      autoPlay={autoPlay}
+      controls={controls}
+      poster={poster}
+      pip={true}
     />
   );
 };

@@ -31,6 +31,7 @@
     "react-hls-player": "^3.0.7",
     "react-icons": "^4.8.0",
     "react-paginate": "^8.1.4",
+    "react-player": "^2.12.0",
     "react-router-dom": "^6.9.0"
   },
   "devDependencies": {

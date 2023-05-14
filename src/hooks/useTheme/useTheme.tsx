@@ -6,10 +6,7 @@ const useTheme = () => {
   React.useEffect(() => {
     switch (theme) {
       case 'light': {
-        document.documentElement.style.setProperty(
-          '--background-color',
-          '#efefef'
-        );
+        document.documentElement.style.setProperty('--background-color', '#');
         document.documentElement.style.setProperty(
           '--font-color',
           `var(--color-blue-400)`
@@ -19,7 +16,7 @@ const useTheme = () => {
       case 'dark': {
         document.documentElement.style.setProperty(
           '--background-color',
-          '#222222'
+          'var(--color-blue-500)'
         );
         document.documentElement.style.setProperty(
           '--font-color',

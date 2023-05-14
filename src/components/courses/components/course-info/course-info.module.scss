@@ -12,9 +12,6 @@
   width: 50%;
 }
 
-
-
-
 .course_info {
   width: 100%;
   padding-bottom: 10px;
@@ -23,14 +20,14 @@
 
 .course__title {
   margin-bottom: 5px;
-  color: var(--color-blue-400);
+  color: var(--font-color);
   font-size: 33px;
 }
 
 .rating {
   margin-top: 5px;
   margin-bottom: 0;
-  color: var(--color-blue-400);
+  color: var(--font-color);
   font-size: 22px;
 
   & span {
@@ -42,4 +39,52 @@
 .course__main-info {
   color: var(--color-white);
   font-size: 18px;
+}
+
+.red {
+  color: red;
+  font-weight: 600;
+  font-size: medium;
+}
+
+.green {
+  animation: neonAnim 2s alternate-reverse infinite;
+  color: #F300FF;
+}
+
+@keyframes neonAnim {
+  from {
+    text-shadow:
+      0 0 10px rgba(243, 0, 255, .7),
+      0 0 40px rgba(243, 0, 255, .7),
+      0 0 100px rgba(243, 0, 255, .7);
+  }
+
+  to {
+    text-shadow:
+      0 0 5px rgba(243, 0, 255, .7),
+      0 0 20px rgba(243, 0, 255, .7),
+      0 0 60px rgba(243, 0, 255, .7);
+  }
+}
+
+.yellow {
+  animation: neonAnimYellow 2s alternate-reverse infinite;
+  color: #DBFF00;
+}
+
+@keyframes neonAnimYellow {
+  from {
+    text-shadow:
+      0 0 10px rgba(219, 255, 0, .7),
+      0 0 40px rgba(219, 255, 0, .7),
+      0 0 100px rgba(219, 255, 0, .7);
+  }
+
+  to {
+    text-shadow:
+      0 0 5px rgba(219, 255, 0, .7),
+      0 0 20px rgba(219, 255, 0, .7),
+      0 0 60px rgba(219, 255, 0, .7);
+  }
 }

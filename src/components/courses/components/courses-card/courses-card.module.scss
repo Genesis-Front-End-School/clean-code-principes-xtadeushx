@@ -23,18 +23,9 @@
   width: 100%;
 }
 
-.curse {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px 50px;
-  width: 100%;
-  max-width: var(--container-width);
-  margin: 0 auto;
-}
-
 .curse__img {
   width: 400px;
-  height: 400px;
+  // height: 400px;
   object-fit: cover;
 }
 

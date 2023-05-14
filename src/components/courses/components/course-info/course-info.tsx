@@ -23,6 +23,7 @@ const CourseInfo: React.FC<ICourseInfoProps> = ({ course }) => {
     meta,
   } = course;
   const { link, duration } = course.lessons[0];
+
   return (
     <section className={styles['course']}>
       <div className="course__description">
@@ -32,9 +33,9 @@ const CourseInfo: React.FC<ICourseInfoProps> = ({ course }) => {
           <span>
             <span
               className={classNames({
-                [styles.red]: rating < 3,
-                [styles.yellow]: rating >= 3 && rating < 5,
-                [styles.green]: rating >= 5,
+                [styles.red]: rating < +3,
+                [styles.yellow]: rating >= +3 && rating < +5,
+                [styles.green]: rating >= +5,
               })}
             >
               {' '}

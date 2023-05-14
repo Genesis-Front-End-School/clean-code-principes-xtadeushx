@@ -10,7 +10,10 @@ const useTheme = () => {
           '--background-color',
           '#efefef'
         );
-        document.documentElement.style.setProperty('--font-color', `#5c88a0`);
+        document.documentElement.style.setProperty(
+          '--font-color',
+          `var(--color-blue-400)`
+        );
         break;
       }
       case 'dark': {
@@ -18,7 +21,10 @@ const useTheme = () => {
           '--background-color',
           '#222222'
         );
-        document.documentElement.style.setProperty('--font-color', '#7cbcde');
+        document.documentElement.style.setProperty(
+          '--font-color',
+          'var(--color-blue-300)'
+        );
         break;
       }
     }

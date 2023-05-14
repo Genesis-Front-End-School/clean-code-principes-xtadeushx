@@ -6,8 +6,10 @@ import { IHeaderProps } from './types';
 import { Menu } from '../menu/menu';
 
 import styles from './header.module.scss';
+import { useToggleTheme } from '../../../hooks/useTheme/useTheme';
 
 const Header: React.FC<IHeaderProps> = ({ user, logOut }) => {
+  const { toggleTheme, theme } = useToggleTheme();
   return (
     <header className={styles.header}>
       <div className={styles.header__inner}>
@@ -19,6 +21,9 @@ const Header: React.FC<IHeaderProps> = ({ user, logOut }) => {
           {/* <img src={computer} alt="computer" width={40} height={40} /> */}
           Best Courses
         </NavLink>
+        <button onClick={toggleTheme} className={styles.button}>
+          {theme}
+        </button>
         <Menu user={user} logOut={logOut} />
       </div>
     </header>

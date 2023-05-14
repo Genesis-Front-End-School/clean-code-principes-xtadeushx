@@ -46,6 +46,7 @@ const CustomVideoPlayer: React.FC<IPlayerProps> = ({
       autoPlay={autoPlay}
       controls={controls}
       poster={poster}
+
       pip={true}
     />
   );

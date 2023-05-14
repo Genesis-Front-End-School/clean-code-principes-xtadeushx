@@ -40,5 +40,8 @@
   cursor: pointer;
 }
 
-// background-color: var(--background-color);
-// color: var(--font-color);;
+.menu-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}

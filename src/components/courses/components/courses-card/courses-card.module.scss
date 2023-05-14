@@ -87,6 +87,8 @@
 .curse-info__video-wrapper {
   width: 100%;
   min-height: 175px;
+  object-fit: contain;
+  max-width: 100%;
 }
 
 .red {

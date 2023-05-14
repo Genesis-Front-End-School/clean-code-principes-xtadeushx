@@ -21,10 +21,12 @@ const Header: React.FC<IHeaderProps> = ({ user, logOut }) => {
           {/* <img src={computer} alt="computer" width={40} height={40} /> */}
           Best Courses
         </NavLink>
-        <button onClick={toggleTheme} className={styles.button}>
-          {theme}
-        </button>
-        <Menu user={user} logOut={logOut} />
+        <div className={styles["menu-wrapper"]}>
+          <button onClick={toggleTheme} className={styles.button}>
+            {theme}
+          </button>
+          <Menu user={user} logOut={logOut} />
+        </div>
       </div>
     </header>
   );

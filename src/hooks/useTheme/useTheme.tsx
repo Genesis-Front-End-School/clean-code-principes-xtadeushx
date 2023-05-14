@@ -10,7 +10,7 @@ const useTheme = () => {
           '--background-color',
           '#efefef'
         );
-        document.documentElement.style.setProperty('--font-color', `#242a3a`);
+        document.documentElement.style.setProperty('--font-color', `#5c88a0`);
         break;
       }
       case 'dark': {
@@ -31,10 +31,13 @@ const useTheme = () => {
   return { toggleTheme, theme };
 };
 type TTheme = {
-theme : 'light' | 'dark',
-toggleTheme: () => void
-}
-const themeContext = React.createContext<TTheme>({theme:'light',toggleTheme:()=>{}});
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
+};
+const themeContext = React.createContext<TTheme>({
+  theme: 'light',
+  toggleTheme: () => {},
+});
 
 export const ThemeProvider = ({ children }: React.PropsWithChildren) => {
   const { toggleTheme, theme } = useTheme();

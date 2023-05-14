@@ -73,6 +73,9 @@
 
 .profile-nav__sign-out {
     min-height: auto;
+    color: var(--font-color);
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .book,

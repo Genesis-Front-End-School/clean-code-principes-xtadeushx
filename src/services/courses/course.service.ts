@@ -1,5 +1,7 @@
-import { ICourse, ICourseList } from 'common/types/coursesList.types';
+import { ICourse, ICourseList } from '../../common/types/coursesList.types';
 import { ENV } from '../../common/enums/enums';
+
+
 
 class Course {
   public apiClient
@@ -8,7 +10,7 @@ class Course {
 
   }
 
-  public async getAllCourses(): Promise<ICourseList> {
+  public async getAllCourses<T>(): Promise<T> {
     return this.apiClient.get(ENV.API_PATH)
   }
 

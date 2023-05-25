@@ -5,7 +5,6 @@ describe('Button component', () => {
   it('renders button with correct data-test-id and children props', () => {
     render(<Button type="button" dataTestId="my-test-id">Click me!</Button>);
 
-    // expect(screen.getByTestId('my-test-id')).toBeInTheDocument();
     expect(screen.getByText('Click me!')).toHaveAttribute('type', 'button');
     expect(screen.getByText('Click me!')).toBeInTheDocument();
   });

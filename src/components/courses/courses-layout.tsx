@@ -1,4 +1,4 @@
-import { ICourseList } from 'common/types/coursesList.types';
+import { ICourseList } from '../../common/types/coursesList.types';
 import { CoursesCard } from './components/courses-card/courses-card.components';
 import styles from './courses-layout.module.scss';
 

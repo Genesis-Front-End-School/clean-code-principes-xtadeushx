@@ -1,11 +1,13 @@
-import { Link } from 'hooks/hooks';
-import { AppRoute } from 'common/enums/enums';
+import classNames from 'classnames';
+
+import { Link } from '../../../../hooks/hooks';
+import { AppRoute } from '../../../../common/enums/enums';
 import { CourseSkills } from '../course-skills/course-skills';
-import { Player } from 'components/common/video/video';
+import { CustomVideoPlayer } from '../../../../components/common/video/video';
+
+import { IMeta } from '../../../../common/types/coursesList.types';
 
 import styles from './courses-card.module.scss';
-import classNames from 'classnames';
-import { IMeta } from 'common/types/coursesList.types';
 
 interface ICoursesCardProps {
   id: string;
@@ -41,7 +43,7 @@ const CoursesCard: React.FC<ICoursesCardProps> = ({
           </h3>
           <div className={styles['curse-info__content']}>
             <div className={styles['curse-info__video-wrapper']}>
-              <Player
+              <CustomVideoPlayer
                 duration={duration}
                 poster={preview}
                 link={link}
@@ -63,11 +65,14 @@ const CoursesCard: React.FC<ICoursesCardProps> = ({
                 className={styles['curse-card-rating']}
               >
                 rating:
-                <span className={classNames({
-                  [styles.red]: rating < 3,
-                  [styles.yellow]: rating >= 3 && rating < 5,
-                  [styles.green]: rating >= 5,
-                })}>{rating}
+                <span
+                  className={classNames({
+                    [styles.red]: rating < 3,
+                    [styles.yellow]: rating >= 3 && rating < 5,
+                    [styles.green]: rating >= 5,
+                  })}
+                >
+                  {rating}
                 </span>
               </span>
             </div>
@@ -82,7 +87,7 @@ const CoursesCard: React.FC<ICoursesCardProps> = ({
       >
         begin studding
       </Link>
-    </div >
+    </div>
   );
 };
 

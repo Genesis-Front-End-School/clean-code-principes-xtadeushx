@@ -1,8 +1,9 @@
 .footer {
   padding: 30px 20px;
-  color: var(--color-white);
+  color: var(--font-color);
   text-align: center;
-  background-color: var(--color-blue-400);
+  background-color: var(--background-color);
+  border-top: 1px solid var(--color-gray);
 
 
   &__text {
@@ -16,17 +17,18 @@
   }
 
   &__link {
-    color: var(--color-blue-200);
+    color: var(--font-color);
     text-decoration: none;
     transition: 0.1s color ease;
   }
 
   &__link:hover {
-    color: var(--color-blue-300);
+    color: var(--font-color);
   }
 }
 
 .gitHub {
   width: 20px;
   height: 20px;
+  color: var(--font-color);
 }

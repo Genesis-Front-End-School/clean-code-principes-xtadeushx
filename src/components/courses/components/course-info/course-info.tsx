@@ -1,8 +1,9 @@
-import { ICourse } from 'common/types/coursesList.types';
+import classNames from 'classnames';
 
 import { CourseContent } from '../course-content/course-content';
-import classNames from 'classnames';
 import { CoursePreview } from '../course-preview/course-preview';
+
+import { ICourse } from '../../../../common/types/coursesList.types';
 
 import styles from './course-info.module.scss';
 
@@ -22,6 +23,7 @@ const CourseInfo: React.FC<ICourseInfoProps> = ({ course }) => {
     meta,
   } = course;
   const { link, duration } = course.lessons[0];
+
   return (
     <section className={styles['course']}>
       <div className="course__description">
@@ -29,11 +31,15 @@ const CourseInfo: React.FC<ICourseInfoProps> = ({ course }) => {
         <h3 className={styles['rating']}>
           rating:
           <span>
-            <span className={classNames({
-              [styles.red]: rating < 3,
-              [styles.yellow]: rating >= 3 && rating < 5,
-              [styles.green]: rating >= 5,
-            })}> {rating}
+            <span
+              className={classNames({
+                [styles.red]: rating < +3,
+                [styles.yellow]: rating >= +3 && rating < +5,
+                [styles.green]: rating >= +5,
+              })}
+            >
+              {' '}
+              {rating}
             </span>
           </span>
         </h3>
@@ -44,7 +50,8 @@ const CourseInfo: React.FC<ICourseInfoProps> = ({ course }) => {
         poster={poster}
         courseDuration={courseDuration}
         lessons={lessons}
-        launchDate={launchDate} />
+        launchDate={launchDate}
+      />
       <CourseContent duration={duration} link={link} lessons={course.lessons} />
     </section>
   );

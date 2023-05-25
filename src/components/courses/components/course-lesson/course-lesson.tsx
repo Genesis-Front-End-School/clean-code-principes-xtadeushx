@@ -1,15 +1,22 @@
-import { ILesson } from 'common/types/coursesList.types';
-import { formateTime } from 'helpers/helpers';
+import { ILesson } from '../../../../common/types/coursesList.types';
+import { formateTime } from '../../../../helpers/helpers';
 
 import styles from './course-lesson.module.scss';
 interface ICourseLessonProps {
-  lesson: ILesson;
+  id: string;
+  order: number;
+  duration: number;
+  title: string;
 }
-const CourseLesson: React.FC<ICourseLessonProps> = ({ lesson }) => {
-  const { order, duration, title } = lesson;
+const CourseLesson: React.FC<ICourseLessonProps> = ({
+  order,
+  duration,
+  title,
+  id,
+}) => {
   return (
     <>
-      <li className={styles['lesson']} key={lesson.id}>
+      <li className={styles['lesson']} key={id}>
         <div className={styles['lesson__title-wrapper']}>
           <p className={styles['lesson__title']}>Lesson {order}</p>
           <p className={styles['lesson__describe']}>{title}</p>

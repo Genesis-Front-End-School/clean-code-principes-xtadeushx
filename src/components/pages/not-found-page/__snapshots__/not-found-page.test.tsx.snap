@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage component should match snapshot 1`] = `
+<h2>
+  <span>
+    😕
+  </span>
+  <br />
+  This page does not found
+</h2>
+`;

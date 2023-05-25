@@ -1,7 +1,7 @@
 import { useFetch, useParams } from '../../../../hooks/hooks';
 import { CourseInfo } from '../course-info/course-info';
 import { ENV } from '../../../../common/enums/enums';
-import Spinner from '../../../../components/common/loader/loader';
+import {Spinner} from 'cherkasov-lib';
 
 import styles from './course-details.module.scss';
 import { ICourse } from '../../../../common/types/coursesList.types';

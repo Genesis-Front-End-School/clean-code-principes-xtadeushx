@@ -1,6 +1,6 @@
 import ReactPaginate from 'react-paginate';
 import { useEffect, useState } from 'react';
-import Spinner from '../common/loader/loader';
+import {Spinner} from 'cherkasov-lib';
 import { CoursesLayout } from '../courses/courses-layout';
 import { ICourseList, TLoadingStatus } from 'common/types/coursesList.types';
 import { course } from '../../services/services';

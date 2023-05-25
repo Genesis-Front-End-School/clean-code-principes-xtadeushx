@@ -1,8 +1,7 @@
 import { NavLink } from '../../../hooks/hooks';
 
 import { IHeaderProps } from './types';
-
-// import computer from '../../../assets/header/computer-screen-with-windows-logo-svgrepo-com.svg';
+import {Button} from 'cherkasov-lib';
 import { Menu } from '../menu/menu';
 
 import styles from './header.module.scss';
@@ -22,9 +21,9 @@ const Header: React.FC<IHeaderProps> = ({ user, logOut }) => {
           Best Courses
         </NavLink>
         <div className={styles["menu-wrapper"]}>
-          <button onClick={toggleTheme} className={styles.button}>
+          <Button onClick={toggleTheme} >
             {theme}
-          </button>
+          </Button>
           <Menu user={user} logOut={logOut} />
         </div>
       </div>

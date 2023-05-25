@@ -21,6 +21,7 @@
     "@gumlet/react-hls-player": "^1.0.1",
     "@types/hls.js": "^1.0.0",
     "@types/react-paginate": "^7.1.1",
+    "cherkasov-lib": "^0.0.0",
     "classnames": "^2.3.2",
     "clsx": "^1.2.1",
     "eslint": "^8.34.0",
